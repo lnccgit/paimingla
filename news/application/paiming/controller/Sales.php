@@ -27,7 +27,12 @@ class Sales extends Controller
             $update = [
                 'password' => md5($data['pass'])
             ];
-            $result = db('sales')->where(["name" => $data['name']])->update($update);
+            if($data['type']==2){//经纪人
+              $dbtable='sales';
+            }else{
+              $dbtable='user';
+            }
+            $result = db($dbtable)->where(["name" => $data['name']])->update($update);
             if ($result) {
                 $this->success('修改成功', 'paiming/index/index');
             } else {

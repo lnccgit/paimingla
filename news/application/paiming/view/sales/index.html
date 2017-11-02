@@ -49,7 +49,7 @@
                         <div class="ny-panel-title" >修改密码</div>
 
                         <form id="chs-form" action="{:url('sales/index')}" class="form-horizontal ny-form ny-tab-container tab-group-1" method="post">
-
+                            <input type="hidden" name="type" value="{$Think.session.admin.type}">
                             <div class="form-group">
                                 <div class="ny-control-label ny-label-long">
                                     <span class="necessary-mark">*</span>
