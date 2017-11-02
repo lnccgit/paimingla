@@ -12,7 +12,7 @@ class Media extends Controller{
 			$data = input('post.');//halt($data);
 			$title = $data['title'];//halt($title);
 			if($title){
-				$where['title'] = array('like',"%$title%");//媒体标题
+				$where['title'] = array('like',"%$title%");//媒体标题ff
 			}
 			$type_id = $data['in_type_id'];
 			if($type_id){
@@ -38,7 +38,7 @@ class Media extends Controller{
 			if($province){
 				$where['prov'] = array('eq',$province);
 			}
-			//dump($where);//exit;			
+			//dump($where);//exit;
 		}
 		$info = DB::name('XwtMedia')->alias('x')->where('status=1')->where($where)->paginate(2)->each(function($item,$key){
 
@@ -57,14 +57,14 @@ class Media extends Controller{
 			//halt($item['prov']) ;
 			$prov = DB::name('Province')->field('id,name')->where('id',$item['prov'])->find();//调出所有的城市信息
 			$item['prov']	=	$prov['name']	;
-			return $item;			
-		});		
+			return $item;
+		});
 		//halt($info);
 			$souinfo = model('Mediatype')->mediainfo('收录类型');
 			$pinfo 	=  model('Mediatype')->mediainfo('频道类型');
 			$mtinfo =  model('Mediatype')->mediainfo('媒体类型');
 			$mfinfo =  model('Mediatype')->mediainfo('媒体来源');
-			$minfo =  model('Mediatype')->mediainfo('门户类型');				
+			$minfo =  model('Mediatype')->mediainfo('门户类型');
 			$province = DB::name('Province')->field('id,name')->select();
 			$this->assign('souinfo',$souinfo);//收录类型信息
 			$this->assign('pinfo',$pinfo);//频道信息
@@ -73,7 +73,7 @@ class Media extends Controller{
 			$this->assign('minfo',$minfo);//门户信息
 			$this->assign('province',$province);
 			$this->assign('info',$info);
-			return $this->fetch();		
+			return $this->fetch();
 	}
 
 	public function add_media(){
@@ -154,7 +154,7 @@ class Media extends Controller{
 			'minfo'		=>	$minfo,
 			'province'	=>	$province,
 			'media'		=>	$mediainfo,
-		]);		
+		]);
 		return $this->fetch();
 	}
 
@@ -164,27 +164,27 @@ class Media extends Controller{
 			if($result){
 				$this->success('删除成功','Media/index');
 			}else{
-				$this->error('删除失败','Media/index');	
+				$this->error('删除失败','Media/index');
 			}
 		}
 
 		public function edit_price(){
 			if(Request::instance()->post()){
-				$data = input('post.');  
+				$data = input('post.');
 				//halt($data);
 				$info['media_id'] = $data['id'];
 				$info['price'] = $data['price'];
-				$info['cancel_price'] = $data['cancel_price'];				
+				$info['cancel_price'] = $data['cancel_price'];
 				$info['create_user_id'] = session('admin')['id'];
 				$info['center_id'] = session('admin')['id'];
 				$info['create_time'] = time();
-				$info['create_ip'] = $_SERVER["REMOTE_ADDR"];				
+				$info['create_ip'] = $_SERVER["REMOTE_ADDR"];
 				$media['yunying_price'] = $info['price'];
 				Db::startTrans();
 					try{
 					   $result =DB::name('XwtMediaPrice')->insert($info);
 					   $result2 =DB::name('XwtMedia')->where('id',$data['id'])->update($media);
-					    Db::commit();    
+					    Db::commit();
 					} catch (\Exception $e) {
 					    Db::rollback();
 					}
@@ -201,7 +201,7 @@ class Media extends Controller{
 //导出部分数据
 	public function export(){
 		if (Request::instance()->get()) {
-			
+
 			$data = input('get.');		//halt($data);
 			$title = $data['title'];
 			if($title){
@@ -244,8 +244,8 @@ class Media extends Controller{
 				$item['media_from_id'] = $data5['title'];		//dump($data4);//媒体来源
 				$data6 = DB::name('XwtMediaType')->field('id,title')->where('id',$item['gate_id'])->find();
 				$item['gate_id'] = $data6['title'];//dump($data4);//门户类型
-				return $item;			
-			});	
+				return $item;
+			});
 				//halt($info);
 			$headArr=array('id'=>'ID','title'=>'媒体名称','url'=>'链接地址','case'=>'案例','cost_price'=>'成本价','guide_price'=>'指导价','in_type_id'=>'收录类型','in_effect_id'=>'指导价取消','ch_type_id'=>'频道类型','media_type_id'=>'媒体类型','media_from_id'=>'媒体来源','gate_id'=>'门户类型','remark'=>'备注','create_time'=>'创建时间');
 			$filename='媒体表';
