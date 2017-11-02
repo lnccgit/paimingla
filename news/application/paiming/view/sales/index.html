@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <title>排名啦搜索营销系统管理平台</title>
+    {include file="layout/cssjs" /}
+    <link href="__STATIC__/plugins/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="__STATIC__/plugins/umeditor/third-party/jquery.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/plugins/umeditor/third-party/template.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/plugins/umeditor/umeditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__STATIC__/plugins/umeditor/umeditor.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/plugins/umeditor/lang/zh-cn/zh-cn.js"></script>
+    <style>
+        .userServiceList {
+            height: 320px;
+            width: 620px;
+            background-color: #F7F7F7;
+            margin-top: 14px;
+            padding: 10px 5px;
+            font-size: 12px;
+            line-height: 2em;
+        }
+    </style>
+</head>
+<body><div class="" style="display: none; position: absolute;"><div class="aui_outer"><table class="aui_border"><tbody><tr><td class="aui_nw"></td><td class="aui_n"></td><td class="aui_ne"></td></tr><tr><td class="aui_w"></td><td class="aui_c"><div class="aui_inner"><table class="aui_dialog"><tbody><tr><td colspan="2" class="aui_header"><div class="aui_titleBar"><div class="aui_title" style="cursor: move;"></div><a class="aui_close" href="javascript:/* www.xiaofuwulala.com */;">×</a></div></td></tr><tr><td class="aui_icon" style="display: none;"><div class="aui_iconBg" style="background: none;"></div></td><td class="aui_main" style="width: auto; height: auto;"><div class="aui_content" style="padding: 20px 25px;"></div></td></tr><tr><td colspan="2" class="aui_footer"><div class="aui_buttons" style="display: none;"></div></td></tr></tbody></table></div></td><td class="aui_e"></td></tr><tr><td class="aui_sw"></td><td class="aui_s"></td><td class="aui_se" style="cursor: se-resize;"></td></tr></tbody></table></div></div>
+<!-- header -->
+{include file="layout/top" /}
+<!-- header end-->
+<!-- menu -->
+{include file="layout/left" /}
+<!-- menu end -->
+<div class="ny-main">
+    <div class="crumb-container" data-nav="swan" id="crumbNavContainer"><ol class="breadcrumb ny-crumb">
+        <!--  <li><a href="/coo.php" class="crumb-home">商户中心</a></li> -->
+    </ol></div>
+    <div id="contentBox">
+        <div class="ny-panel">
+
+            <div class="ny-panel-body">
+
+                <!-- 提交站点  begin -->
+                <div class="ny-panel-heading">
+
+
+
+                    <div class="ny-panel-body" id="gaojian" class="gaojian" >
+
+                        <div class="ny-panel-title" >修改密码</div>
+
+                        <form id="chs-form" action="{:url('sales/index')}" class="form-horizontal ny-form ny-tab-container tab-group-1" method="post">
+
+                            <div class="form-group">
+                                <div class="ny-control-label ny-label-long">
+                                    <span class="necessary-mark">*</span>
+                                    用户名:
+                                </div>
+                                <div class="col-xs-8 ny-form-control validate-control">
+                                    <input id="name" type="text" class="ny-input-reset ny-long-input" name="name" required="required" value="{$Think.session.admin.name}" readonly>
+                                    <div class="error-reminder"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="ny-control-label ny-label-long">
+                                    <span class="necessary-mark">*</span>
+                                    新密码:
+                                </div>
+                                <div class="col-xs-8 ny-form-control validate-control">
+                                    <input id="pass" type="password" class="ny-input-reset ny-long-input" name="pass" required="required" >
+                                    <div class="error-reminder"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="ny-control-label ny-label-long">
+                                    <span class="necessary-mark">*</span>
+                                    确认密码:
+                                </div>
+                                <div class="col-xs-8 ny-form-control validate-control">
+                                    <input id="respass" type="password" class="ny-input-reset ny-long-input" name="respass" required="required" >
+                                    <div class="error-reminder"></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-8 ny-form-control">
+                                <!--   <a href="javascript:;" class="ny-btn btn-strong" id="submitWorkorder">添 加</a> -->
+                                <button type="submit" style="margin-left: 20%" class="ny-btn btn-strong">添 加</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+<!-- footer -->
+{include file="layout/foot" /}
+
+<!-- footer end -->
+<!-- 快捷feedback提示框 -->
+<div class="ui-feedback-layout" id="nyFeedback">
+    <div class="ui-feedback ui-feedback-success">
+        <div class="ui-feedback-icon"></div>
+        <div class="ui-feedback-text">
+            操作成功
+        </div>
+        <span class="ui-feedback-close">×</span>
+    </div>
+</div>
+<!-- 普通提示框，来自 Bootstrap 的 Small modal -->
+<div class="modal fade nytips-modal" tabindex="-1" role="dialog" id="nyTips">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">消息</h4>
+            </div>
+            <div class="modal-body">
+                <!-- 主要内容 -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div style="display: none; position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; cursor: move; opacity: 0; background: rgb(255, 255, 255);"></div></body></html>
