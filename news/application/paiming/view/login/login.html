@@ -104,7 +104,7 @@
                 if( verifyimg.indexOf('?')>0){
                     $(this).attr("src", verifyimg+'&random='+Math.random());
                 }else{
-                    $(this).attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());
+                    $(this).attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());//ss
                 }
             });
 
