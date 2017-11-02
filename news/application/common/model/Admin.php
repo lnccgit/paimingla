@@ -36,8 +36,19 @@ class Admin extends Model{
 	}
 //运营中心登录
 	public function login2($data){
+        if($data['logintype']==1){
+           $info=db('user')->alias('a')->where('name',$data['username'])->where('password',md5($data['password']))->find();
 
-		$info=db('user')->alias('a')->where('name',$data['username'])->where('password',md5($data['password']))->find();//dump($info);
+        }else{
+            $info=\model('sales')->where('name',$data['username'])
+            ->where('password',md5($data['password']))->find();
+            if($info){
+            	$info['type']=2;//经纪人
+            }
+            
+
+        }
+//dump($info);
 
 		if($info){
 
@@ -48,6 +59,8 @@ class Admin extends Model{
 			return ['status'=>0,'msg'=>'用户名或者密码错误!'];
 		}
 	}
+
+
 }
 
 

@@ -101,7 +101,7 @@
     <div class="crumb-container hide" id="crumbNavContainer" data-nav="phoenix"><ol class="breadcrumb ny-crumb">
         <li><a href="/coo.php" class="crumb-home">用户中心</a></li>
         <!-- 一级目录 -->
-        <li><a>
+        <li><a >
             后台总览
         </a></li>
 
@@ -118,22 +118,22 @@
                         </div>
                         <div class="pull-left user-detail">
                             <div class="user-detail-greetings margin-bottom-20">
-                                <span class="username-outer text-overflow" title="{$Think.session.chsUser.realname}">你好，*********</span>
+                                <span class="username-outer text-overflow" title="{$Think.session.chsUser.realname}">你好，{$Think.session.admin.name}</span>
 
                             </div>
                             <div>
-                                会员ID：**********
+                                会员ID：{$Think.session.admin.id}
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="clearfix user-connect">
                             <span class="text-muted connect-icon connect-icon-mobile">手机号码</span>
-                            <a class="pull-right" href="javascript:;">**********</a>
+                            <a class="pull-right" href="javascript:;">{$Think.session.admin.mobile}</a>
                         </div>
                         <div class="clearfix user-connect">
                             <span class="text-muted connect-icon connect-icon-email">电子邮箱</span>
-                            <a class="pull-right" href="javascript:;">***********</a>
+                            <a class="pull-right" href="javascript:;">{$Think.session.admin.email}</a>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:82:"D:\phpStudy\WWW\paimingla\news\public/../application/paiming\view\index\index.html";i:1508916265;s:81:"D:\phpStudy\WWW\paimingla\news\public/../application/paiming\view\layout\top.html";i:1509081588;s:82:"D:\phpStudy\WWW\paimingla\news\public/../application/paiming\view\layout\left.html";i:1509356846;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:82:"D:\phpStudy\WWW\paimingla\news\public/../application/paiming\view\index\index.html";i:1509531569;s:81:"D:\phpStudy\WWW\paimingla\news\public/../application/paiming\view\layout\top.html";i:1509531569;s:82:"D:\phpStudy\WWW\paimingla\news\public/../application/paiming\view\layout\left.html";i:1509531569;}*/ ?>
 <!DOCTYPE html>
 
 <html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -105,7 +105,9 @@
 
            <?php if(session('admin')['type'] == 1): ?>
                 【 <font color=yellow><b>运营中心</b></font> 】
-                <?php else: ?>
+                <?php elseif(session('admin')['type'] == 2): ?>
+            【 <font color=yellow><b>经纪人</b></font> 】
+            <?php else: ?>
             【 <font color=yellow><b>客户</b></font> 】
             <?php endif; ?>
           
@@ -154,43 +156,43 @@
                     <div id="serviceCollapse" class="collapse" aria-expanded="false" style="height: 0px;" role="tabpanel" aria-labelledby="serviceHeading">
                         <ul class="sub-menu">
                             <li> <a href="<?php echo url('paiming/Media/index'); ?>" data-named="peacock">媒体列表</a> </li>
-                       
+
                         </ul>
                     </div>
                     <?php else: ?>
                         <div class="upper-menu-wrap" role="tab" id="serviceHeading">
                         <a class="collapsed upper-menu menu-icon-service" role="button" data-toggle="collapse" data-parent="#accordion" href="#serviceCollapse" aria-expanded="false" aria-controls="serviceCollapse">媒体管理</a>
                     </div>
-                    <div id="serviceCollapse" class="collapse in" aria-expanded="false" role="tabpanel" aria-labelledby="serviceHeading">
+                    <div id="serviceCollapse" class="collapse " aria-expanded="false" role="tabpanel" aria-labelledby="serviceHeading">
                         <ul class="sub-menu">
                             <li> <a href="<?php echo url('paiming/Media/index'); ?>" data-named="peacock">媒体列表</a> </li>
                       
                         </ul>
                     </div>
                     <?php endif; if($c == Manus): ?>
-                    <div class="upper-menu-wrap" role="tab" id="serviceHeading">
+                    <div class="upper-menu-wrap" role="tabpanel" id="serviceHeading">
                         <a class="collapsed upper-menu menu-icon-service" role="button" data-toggle="collapse" data-parent="#accordion" href="#service" aria-expanded="false" aria-controls="serviceCollapse">
                             稿件管理
                         </a>
                     </div>
                     <div id="service" class="collapse" role="tabpanel" aria-labelledby="serviceHeading">
                         <ul class="sub-menu ">
-                            <li><a href="<?php echo url('paiming/Manus/add_manus'); ?>" data-named="peacock">发布稿件</a></li>                          
-                            <li><a href="<?php echo url('paiming/Manus/index'); ?>" data-named="peacock">全部稿件</a></li>                          
-                       
+                            <li><a href="<?php echo url('paiming/Manus/add_manus'); ?>" data-named="peacock">发布稿件</a></li>
+                            <li><a href="<?php echo url('paiming/Manus/index'); ?>" data-named="peacock">全部稿件</a></li>
+
                         </ul>
                     </div>
                     <?php else: ?>
                      <div class="upper-menu-wrap" role="tab" id="serviceHeading">
-                        <a class="collapsed upper-menu menu-icon-service" role="button" data-toggle="collapse" data-parent="#accordion" href="#service" aria-expanded="false" aria-controls="serviceCollapse">
+                        <a class="collapsed upper-menu menu-icon-service" role="button" data-toggle="collapse" data-parent="#accordion" href="#services" aria-expanded="false" aria-controls="serviceCollapse">
                             稿件管理
                         </a>
                     </div>
-                    <div id="service" class="collapse" role="tabpanel" aria-labelledby="serviceHeading">
+                    <div id="services" class="collapse" role="tabpanel" aria-labelledby="serviceHeading">
                         <ul class="sub-menu ">
 
                             <li><a href="<?php echo url('paiming/Manus/add_manus'); ?>" data-named="peacock">发布稿件</a></li>                          
-                            <li><a href="<?php echo url('paiming/Manus/index'); ?>" data-named="peacock">全部稿件</a></li>                            
+                            <li><a href="<?php echo url('paiming/Manus/index'); ?>" data-named="peacock">全部稿件</a></li>
                             <li><a href="<?php echo url('paiming/Manus/tobeannounce'); ?>" data-named="peacock">待发布</a></li>                            
                             <li><a href="<?php echo url('paiming/Manus/published'); ?>" data-named="peacock">已发布</a></li>                            
                             
@@ -198,6 +200,16 @@
                     </div>
                     <?php endif; ?>
 
+
+                    <div class="upper-menu-wrap" role="tab" id="serviceHeading">
+                        <a class="collapsed upper-menu menu-icon-service menu-active" role="button" data-toggle="collapse" data-parent="#accordion" href="#servicehui" aria-expanded="false" aria-controls="serviceCollapse">会员管理</a>
+                    </div>
+                    <div id="servicehui" class="collapse" aria-expanded="false" style="height: 0px;" role="tabpanel" aria-labelledby="serviceHeading">
+                        <ul class="sub-menu">
+                            <li> <a href="<?php echo url('paiming/Sales/index'); ?>" data-named="peacock">修改密码</a> </li>
+
+                        </ul>
+                    </div>
                 </div>
               
                 <!--站点管理-->          
@@ -224,7 +236,7 @@
     <div class="crumb-container hide" id="crumbNavContainer" data-nav="phoenix"><ol class="breadcrumb ny-crumb">
         <li><a href="/coo.php" class="crumb-home">用户中心</a></li>
         <!-- 一级目录 -->
-        <li><a>
+        <li><a >
             后台总览
         </a></li>
 
@@ -241,22 +253,22 @@
                         </div>
                         <div class="pull-left user-detail">
                             <div class="user-detail-greetings margin-bottom-20">
-                                <span class="username-outer text-overflow" title="<?php echo \think\Session::get('chsUser.realname'); ?>">你好，*********</span>
+                                <span class="username-outer text-overflow" title="<?php echo \think\Session::get('chsUser.realname'); ?>">你好，<?php echo \think\Session::get('admin.name'); ?></span>
 
                             </div>
                             <div>
-                                会员ID：**********
+                                会员ID：<?php echo \think\Session::get('admin.id'); ?>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="clearfix user-connect">
                             <span class="text-muted connect-icon connect-icon-mobile">手机号码</span>
-                            <a class="pull-right" href="javascript:;">**********</a>
+                            <a class="pull-right" href="javascript:;"><?php echo \think\Session::get('admin.mobile'); ?></a>
                         </div>
                         <div class="clearfix user-connect">
                             <span class="text-muted connect-icon connect-icon-email">电子邮箱</span>
-                            <a class="pull-right" href="javascript:;">***********</a>
+                            <a class="pull-right" href="javascript:;"><?php echo \think\Session::get('admin.email'); ?></a>
                         </div>
                     </div>
                 </div>

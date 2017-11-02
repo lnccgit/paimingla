@@ -12,7 +12,9 @@
 
            {if condition="session('admin')['type'] eq 1"}
                 【 <font color=yellow><b>运营中心</b></font> 】
-                {else /}
+                {elseif condition="session('admin')['type'] eq 2" /}
+            【 <font color=yellow><b>经纪人</b></font> 】
+            {else}
             【 <font color=yellow><b>客户</b></font> 】
             {/if}
           

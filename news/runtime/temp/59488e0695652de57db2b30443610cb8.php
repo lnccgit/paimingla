@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:82:"D:\phpStudy\WWW\paimingla\news\public/../application/paiming\view\login\login.html";i:1509513859;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:82:"D:\phpStudy\WWW\paimingla\news\public/../application/paiming\view\login\login.html";i:1509531569;}*/ ?>
 
 <!DOCTYPE html>
 <html>
@@ -55,8 +55,12 @@
                         }
                         if (i == num) {
                             tag.className = Class + "On";
+                            var str="<input name='logintype' value='0' type='hidden'>";
+                            document.getElementById("showh").innerHTML=str;
                         } else {
                             tag.className = Class;
+                            var str="<input name='logintype' value='1' type='hidden'>";
+                            document.getElementById("showh").innerHTML=str;
                         }
                     }
                 }
@@ -67,16 +71,17 @@
                     <li onmousedown="Show('zzq','zzq',1,2,0,2)" id="zzq_tab_1" class="zzq"><a href="###">经纪人</a></li>
                 </ul>
                 <form action="" method="post">
+                    <div id="showh"><input name='logintype' value='1' type='hidden'></div>
                 <div class="box" id="zzq_cont_0" style="display: block;">
                     <input style="background: url(images/login-img2.png)no-repeat 10px center;" id="js-mobile_ipt" name="username" type="text" value="用户名" onfocus="if(value=='用户名')
-								{this.style.color='#666';value=''}" onblur="if(value==''){this.style.color='#666666';value='用户名'}">
+                                {this.style.color='#666';value=''}" onblur="if(value==''){this.style.color='#666666';value='用户名'}">
                
                     <input style="background: url(images/login-img3.png)no-repeat 10px center;" id="js-mobile_pwd_ipt"  name="password" type="text" value="密码" onfocus="if(this.value==defaultValue) {this.value='';this.type='password'}" onblur="if(!value)
-							{value=defaultValue; this.type='text';}" style="color:#666666;" />
+                            {value=defaultValue; this.type='text';}" style="color:#666666;" />
                     <!--密码框-->
                     <div style="overflow: hidden;">
                         <input style="width: 138px;padding-left: 20px;float: left;" type="text" name="vcode" value="验证码" id="js-mobile_vcode_ipt"  onfocus="if(value=='验证码')
-								{this.style.color='#666';value=''}" onblur="if(value==''){this.style.color='#666666';value='验证码'}">
+                                {this.style.color='#666';value=''}" onblur="if(value==''){this.style.color='#666666';value='验证码'}">
                         <div style="float: left;margin-left: 20px; margin-top: 28px;"><img class="left15" src="<?php echo captcha_src(); ?>" alt="captcha" onclick="this.src=this.src+'?'+Math.random()"width="120" alt="验证码" style="cursor:pointer;" id="chsCheck" title="点击刷新"></div>
                        <!--  <img class="left15" width="120" alt="验证码" style="cursor:pointer;" src="/user.php?c=login&a=verify" id="chsCheck"  title="点击刷新"> --></div>
                     </div>
